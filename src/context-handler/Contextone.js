@@ -7,12 +7,18 @@ const MyContext = React.createContext();
 class MyProvider extends React.Component {
     state={
         name:"chaitanya",
-        address:"slc utah"
+        address:"slc utah",
+        age:100,
     }
     render() {
         return (
             <MyContext.Provider value={{
                 state: this.state,
+                growAYearOlder: () => {
+                    this.setState({
+                        age:this.state.age+1,
+                    })
+                }
             }}>
                 {this.props.children}
             </MyContext.Provider>    
@@ -35,7 +41,8 @@ class Person extends Component {
               <React.Fragment>
                 <p>Address: {context.state.address}</p>
                 <p>Name: {context.state.name}</p>
-                {/* <button onClick={context.growAYearOlder}>🍰🍥🎂</button> */}
+                <p>Age -- > {context.state.age}</p>
+                <button onClick={context.growAYearOlder}>🍰🍥🎂+birthday</button>
               </React.Fragment>
             )}
           </MyContext.Consumer>
