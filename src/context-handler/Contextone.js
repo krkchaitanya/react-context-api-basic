@@ -17,6 +17,7 @@ class MyProvider extends React.Component {
                 growAYearOlder: () => {
                     this.setState({
                         age:this.state.age+1,
+                        name:"krihsna chaitanya"
                     })
                 }
             }}>
