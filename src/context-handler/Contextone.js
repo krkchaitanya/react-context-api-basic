@@ -1,31 +1,5 @@
 import React, { Component } from 'react';
-
-// first we make new context
-const MyContext = React.createContext();
-
-// create a provider component where our data exists.
-class MyProvider extends React.Component {
-    state={
-        name:"chaitanya",
-        address:"slc utah",
-        age:100,
-    }
-    render() {
-        return (
-            <MyContext.Provider value={{
-                state: this.state,
-                growAYearOlder: () => {
-                    this.setState({
-                        age:this.state.age+1,
-                        name:"krihsna chaitanya"
-                    })
-                }
-            }}>
-                {this.props.children}
-            </MyContext.Provider>    
-        )
-    }
-}
+import {MyContext, MyProvider} from './ContextHandler';
 
 const Family = (props) => (
     <div className="family">
@@ -36,7 +10,12 @@ const Family = (props) => (
 class Person extends Component {
     render() {
       return (
-        <div className="person">
+        <div
+         className="person"
+         style={{
+             backgroundColor:"lightGrey"
+         }}
+         >
           <MyContext.Consumer>
             {(context) => (
               <React.Fragment>
