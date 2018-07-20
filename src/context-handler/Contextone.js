@@ -21,8 +21,12 @@ class Person extends Component {
               <React.Fragment>
                 <p>Address: {context.state.address}</p>
                 <p>Name: {context.state.name}</p>
-                <p>Age -- > {context.state.age}</p>
+                <p>Age -- > {context.state.age}.....{context.state.retirementAge}</p>
                 <button onClick={context.growAYearOlder}>🍰🍥🎂+birthday</button>
+                <br />
+                <h2>Calculate retirement age of a person....</h2>
+                <br />
+                <button onClick={context.retirementAgeHandler(5)}>RetirementAGEfun</button>
               </React.Fragment>
             )}
           </MyContext.Consumer>
