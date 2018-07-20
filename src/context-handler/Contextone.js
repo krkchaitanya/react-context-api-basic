@@ -26,7 +26,7 @@ class Person extends Component {
                 <br />
                 <h2>Calculate retirement age of a person....</h2>
                 <br />
-                <button onClick={context.retirementAgeHandler(5)}>RetirementAGEfun</button>
+                <button onClick={context.retirementAgeHandler}>RetirementAGEfun</button>
               </React.Fragment>
             )}
           </MyContext.Consumer>
