@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {MyContext, MyProvider} from './ContextHandler';
 
+import {MyProvider, Consumer} from './ContextHandler';
 const Family = (props) => (
     <div className="family">
         <Person />
@@ -16,20 +16,20 @@ class Person extends Component {
              backgroundColor:"lightGrey"
          }}
          >
-          <MyContext.Consumer>
+          <Consumer>
             {(context) => (
               <React.Fragment>
                 <p>Address: {context.state.address}</p>
                 <p>Name: {context.state.name}</p>
-                <p>Age -- > {context.state.age}.....{context.state.retirementAge}</p>
+                <p>Age -- > {context.state.age}.....Number FUNC--{context.state.numberHandler}</p>
                 <button onClick={context.growAYearOlder}>🍰🍥🎂+birthday</button>
                 <br />
                 <h2>Calculate retirement age of a person....</h2>
                 <br />
-                <button onClick={context.retirementAgeHandler}>RetirementAGEfun</button>
+                <button onClick={context.numberHandlerFunc}>numberHandlerFunc</button>
               </React.Fragment>
             )}
-          </MyContext.Consumer>
+          </Consumer>
         </div>
       )
     }

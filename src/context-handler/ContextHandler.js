@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { createContext } from 'react';
 
 // first we make new context
-export const MyContext = React.createContext();
+export const MyContext = createContext();
+export const { Provider , Consumer } = createContext('light');
 // create a provider component where our data exists.
 export class MyProvider extends React.Component {
     state={
         name:"Context API",
         address:"slc utah",
         age:100,
-        retirementAge: 0,
+        numberHandler: 0,
     }
-retirementAgeCalFun = (dob) => {
+numberHandlerFunc = (randomNum) => {
     this.setState({
-        retirementAge: this.state.retirementAge+25,
+        numberHandler: this.state.numberHandler+25,
     });
-    return dob;
+    return randomNum;
 }
     render() {
-        console.log('retirement age calculator..', this.state.reti);
+        console.log('retirement age calculator..', this.state.rnumberHandlereti);
         return (
-            <MyContext.Provider value={{
+            <Provider value={{
                 state: this.state,
                 growAYearOlder: () => {
                     this.setState({
@@ -27,10 +28,10 @@ retirementAgeCalFun = (dob) => {
                         name:"humanbeing"
                     })
                 },
-                retirementAgeHandler: this.retirementAgeCalFun,
+                numberHandlerFunc: this.numberHandlerFunc,
             }}>
                 {this.props.children}
-            </MyContext.Provider>    
+            </Provider>    
         )
     }
 }
