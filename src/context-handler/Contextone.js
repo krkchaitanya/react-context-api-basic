@@ -8,6 +8,15 @@ const Family = (props) => (
 )
 
 class Person extends Component {
+    state = {
+        numInfo:0,
+    }
+    onTodoChange = (numVal) => {
+    this.setState({
+        numInfo:numVal,
+    });
+    return numVal
+    }
     render() {
       return (
         <div
@@ -19,14 +28,30 @@ class Person extends Component {
           <Consumer>
             {(context) => (
               <React.Fragment>
+                  <br />
                 <p>Address: {context.state.address}</p>
                 <p>Name: {context.state.name}</p>
-                <p>Age -- > {context.state.age}.....Number FUNC--{context.state.numberHandler}</p>
-                <button onClick={context.growAYearOlder}>🍰🍥🎂+birthday</button>
+                <hr />
+                <p>Age ------>> {context.state.age}</p>
+                <button
+                 onClick={context.growAYearOlder}
+                 style={{
+                     backgroundColor:'lightGrey',
+                     border: '1px solid green',
+                 }}
+                 >🍰🍥🎂+birthday
+                 </button>
                 <br />
-                <h2>Calculate retirement age of a person....</h2>
+                <h2>...Number FUNC--inc num by 2--->>{context.state.numberHandler}....</h2>
                 <br />
-                <button onClick={context.numberHandlerFunc}>numberHandlerFunc</button>
+                <button 
+                onClick={context.numberHandlerFunc}
+                style= {{
+                    padding: '4px',
+                    backgroundColor: 'lightBlue',
+                }}>
+                IncreaseNum
+                </button>
               </React.Fragment>
             )}
           </Consumer>

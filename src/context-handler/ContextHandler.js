@@ -11,14 +11,13 @@ export class MyProvider extends React.Component {
         age:100,
         numberHandler: 0,
     }
-numberHandlerFunc = (randomNum) => {
+numberHandlerFunc = () => {
     this.setState({
-        numberHandler: this.state.numberHandler+25,
+        numberHandler: this.state.numberHandler+2,
     });
-    return randomNum;
 }
     render() {
-        console.log('retirement age calculator..', this.state.rnumberHandlereti);
+        console.log('numberHandler calculator..', this.state.numberHandler);
         return (
             <Provider value={{
                 state: this.state,
